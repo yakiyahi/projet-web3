@@ -3,7 +3,7 @@ module.exports = {
   /**
    * $ truffle test --network <network-name>
    */
-  contract_build_directory:"./client/src/contracts",
+  contracts_build_directory:"../IA/src/contracts",
   
   networks: {
   
