@@ -1,6 +1,6 @@
 import json
 
-fichier_json = "src/contracts/AppelOffres.json"
+fichier_json = "contracts/AppelOffres.json"
 
 def get_abi():
     abi = ""
