@@ -5,65 +5,57 @@ contract AppelOffres {
 
     // Structure pour stocker les détails de l'appel d'offres
     struct Offre {
+        uint numero;
         string titre;
         string description;
+        string societe;
         uint datePublication;
         uint dateCloture;
     }
 
     // Tableau des offres
-    Offre[] public offres;
+    mapping(uint =>Offre) offres;
+    uint public offreCount;
 
-    // Tableau des critères d'évaluation pour chaque offre
-    mapping(uint => string[]) public criteresEvaluation;
+    event OffreCree(uint numero, string titre, string description, string societe, uint datePublication, uint dateCloture);
+
+    function getOffreCount() public view returns(uint) {
+        return offreCount;
+    }
 
     // Fonction pour créer un nouvel appel d'offres
     function creerOffre(
         string memory _titre,
         string memory _description,
+        string memory _societe,
         uint _datePublication,
-        uint _dateCloture,
-        string[] memory _criteresEvaluation
+        uint _dateCloture
     ) public {
-        Offre memory nouvelleOffre = Offre({
-            titre: _titre,
-            description: _description,
-            datePublication: _datePublication,
-            dateCloture: _dateCloture
-        });
+        offreCount++;
 
-        offres.push(nouvelleOffre);
+        offres[offreCount] = Offre(offreCount, _titre, _description, _societe, _datePublication, _dateCloture);
+        emit OffreCree(offreCount, _titre, _description, _societe, _datePublication, _dateCloture);
+    }
 
-        // Stocker les critères d'évaluation pour cette offre
-        uint indexOffre = offres.length - 1;
-        for (uint i = 0; i < _criteresEvaluation.length; i++) {
-            criteresEvaluation[indexOffre].push(_criteresEvaluation[i]);
+    // Fonction pour récupérer toutes les offres
+    function getAllOffres() public view returns(Offre[] memory) {
+        Offre[] memory result = new Offre[](offreCount);
+        for(uint i = 1; i <= offreCount; i++){
+            result[i - 1] = offres[i];
         }
+        return result;
     }
 
     // Fonction pour obtenir les détails d'une offre
-    function getOffre(uint _index) public view returns (Offre memory) {
-        return offres[_index];
+    function getOffre(uint _numero) public view returns (Offre memory) {
+        require(_numero <= offreCount && _numero > 0, "Offre non trouvee");
+        return offres[_numero];
     }
 
-    // Fonction pour obtenir les critères d'évaluation d'une offre
-    function getCriteresEvaluation(uint _index) public view returns (string[] memory) {
-        return criteresEvaluation[_index];
-    }
 
-    // Fonction pour soumettre une offre (implémentation en attente)
-    function soumettreOffre(uint _indexOffre, string memory _soumission) public {
-        // TODO: Implémenter la logique de soumission d'offre
-    }
-
-    // Fonction pour évaluer les offres (implémentation en attente)
-    function evaluerOffres() public {
-        // TODO: Implémenter la logique d'évaluation des offres
-    }
-
-    // Fonction pour obtenir l'offre gagnante (implémentation en attente)
-    function getOffreGagnante() public pure returns (Offre memory) {
-        // TODO: Implémenter la logique pour déterminer l'offre gagnante
-        return Offre("", "", 0, 0);
+    // Fonction pour obtenir la description d'une offre
+    function getDescriptionOffre(uint _numero) public view returns(string memory){
+        require(_numero <= offreCount && _numero > 0, "Offre non trouvee");
+        return offres[_numero].description;
     }
 }

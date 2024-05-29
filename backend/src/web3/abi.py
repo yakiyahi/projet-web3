@@ -1,10 +1,8 @@
 import json
 
-fichier_json = "contracts/AppelOffres.json"
-
-def get_abi():
+def get_abi(file):
     abi = ""
-    with open(fichier_json, "r") as fichier:
+    with open(file, "r") as fichier:
         donnees = json.load(fichier)
         abi = donnees["abi"]
     return abi
