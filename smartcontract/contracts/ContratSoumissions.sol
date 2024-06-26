@@ -9,10 +9,8 @@ contract ContratSoumissions {
         address soumissionaire; // Adresse de la personne ayant soumis la soumission
         uint256 numeroContrat; // Numéro du contrat associé à la soumission
         string nom;
-        uint256 coutTotal;
+        string coutTotal;
         string delaiRealisation;
-        string solution;
-        uint256 garantie;
         string references;
     }
     
@@ -25,10 +23,8 @@ contract ContratSoumissions {
         address _soumissionaire,
         uint256 _numeroContrat,
         string memory _nom,
-        uint256 _coutTotal,
+        string memory _coutTotal,
         string memory _delaiRealisation,
-        string memory _solution,
-        uint256 _garantie,
         string memory _references
     ) public  {
         offreCount++;
@@ -40,8 +36,6 @@ contract ContratSoumissions {
             nom: _nom,
             coutTotal: _coutTotal,
             delaiRealisation: _delaiRealisation,
-            solution: _solution,
-            garantie: _garantie,
             references: _references
         });
         
@@ -60,10 +54,8 @@ contract ContratSoumissions {
         address soumissionaire,
         uint256 numeroContrat,
         string memory nom,
-        uint256 coutTotal,
+        string memory coutTotal,
         string memory delaiRealisation,
-        string memory solution,
-        uint256 garantie,
         string memory references
     ) {
         require(index < soumissions.length, "L'index est en dehors de la plage");
@@ -75,8 +67,6 @@ contract ContratSoumissions {
             soumission.nom,
             soumission.coutTotal,
             soumission.delaiRealisation,
-            soumission.solution,
-            soumission.garantie,
             soumission.references
         );
     }

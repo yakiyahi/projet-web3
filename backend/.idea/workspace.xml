@@ -5,29 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96816417-a308-451e-9785-ca578c672a4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-05-27_19_01_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-05-27_19_01_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-05-27_19_01__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-05-27_19_01__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contances/contances.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/web3/contract_soumission.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../smartcontract/migrations/2_deploy_contracts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/evaluer_candidature.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/meilleur_can_spacy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/recupere_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/resume_solution_proposé.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-05-27_19_01_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-05-27_19_01__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contances/contances.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/contances/contances.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/AppelOffres.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/AppelOffres.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/ContratSoumissions.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/ContratSoumissions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web3/abi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web3/abi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web3/connexion_web3.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web3/connexion_web3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web3/contract_soumission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web3/contract_soumission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client-vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/SubmitionPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/SubmitionPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/DetailleOffrePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/DetailleOffrePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/build/contracts/AppelOffres.json" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/build/contracts/ContratSoumissions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/build/contracts/SimpleStorage.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/build/contracts/Test.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/contracts/AppelOffres.sol" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/contracts/AppelOffres.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/contracts/SimpleStorage.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/contracts/Test.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/migrations/1_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/migrations/1_deploy_contracts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/truffle-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewOffrePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewOffrePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewSubmitPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewSubmitPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smartcontract/contracts/ContratSoumissions.sol" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/contracts/ContratSoumissions.sol" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,15 +50,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/yaki/projet/PROJET-BLOCKCHAIN/backend&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.abi.executor": "Run",
+    "Python.app.executor": "Run",
+    "Python.connexion_web3.executor": "Run",
+    "Python.contances.executor": "Run",
+    "Python.contract_soumission.executor": "Run",
+    "Python.evaluer_candidature.executor": "Run",
+    "Python.meilleur_can_spacy.executor": "Run",
+    "Python.prog.executor": "Run",
+    "Python.recupere_info.executor": "Run",
+    "Python.resume_solution_proposé.executor": "Run",
+    "Python.societe_avec_nltk.executor": "Run",
+    "Python.teste.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/yaki/projet/PROJET-BLOCKCHAIN/backend"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/web3" />

@@ -5,7 +5,7 @@ from src.web3.abi import get_abi
 from contances.contances import *
 
 
-contract = web3.eth.contract(address=address_contract, abi=get_abi(fichier_json))
+contract = web3.eth.contract(address=address_contract, abi=get_abi())
 
 
 #creation fonction qui creer l'offre
