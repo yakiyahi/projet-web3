@@ -1,61 +1,79 @@
-import spacy
-from transformers import pipeline
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import nltk
+from nltk.corpus import stopwords
+import string
 
-# Charger le modèle spaCy pour le français
-nlp_spacy = spacy.load("fr_core_news_md")
+# Télécharger les ressources nécessaires
+nltk.download('punkt')
+nltk.download('stopwords')
 
-# Charger un pipeline de reconnaissance d'entités nommées (NER) avec un modèle pré-entraîné
-ner_pipeline = pipeline("ner", model="Jean-Baptiste/camembert-ner", tokenizer="Jean-Baptiste/camembert-ner")
+# Offre contenant le titre, la description, la date de publication et la date de fin
+offre = {
+    "titre": "Développement d'une application web",
+    "description": "Nous cherchons une solution innovante pour développer une application web qui optimise les processus de gestion.",
+    "date_publication": "2023-01-01",
+    "date_fin": "2023-01-15",
+    "prix": 4800,
+    "duree": 8,
+    "references": 3
+}
 
-def extraire_informations(description):
-    doc = nlp_spacy(description)
-    ner_results = ner_pipeline(description)
+# Exemple de données des candidats
+candidats = [
+    {"nom": "Candidat A", "prix": 5000, "duree": 12, "solution": "Solution innovante et efficace.", "references": 2},
+    {"nom": "Candidat B", "prix": 5100, "duree": 3, "solution": "Optimisation des processus et réduction des coûts.", "references": 1},
+    {"nom": "Candidat C", "prix": 5000, "duree": 18, "solution": "Solution innovante et efficace pour optimiser les processus.", "references": 3}
+]
 
-    solution = ""
-    cout = ""
-    duree = ""
-    references = []
+# Critères et poids
+poids = {
+    "prix": 0.25,
+    "duree": 0.25,
+    "solution": 0.25,
+    "references": 0.25
+}
 
-    for ent in ner_results:
-        entity_text = ent['word']
-        entity_label = ent['entity']
+# Préparer les données
+prix_offre = offre["prix"]
+duree_offre = offre["duree"]
+solution_offre = offre["description"]
+references_offre = offre["references"]
 
-        if "SOLUTION" in entity_label:
-            solution += " " + entity_text
-        elif "COUT" in entity_label:
-            cout += " " + entity_text
-        elif "DUREE" in entity_label:
-            duree += " " + entity_text
-        elif "REFERENCE" in entity_label:
-            references.append(entity_text)
+# Normaliser les prix et les durées (inverser pour donner priorité aux valeurs plus basses)
+data = np.array([[c["prix"], c["duree"], c["references"]] for c in candidats] + [[prix_offre, duree_offre, references_offre]])
+data[:, 0] = -data[:, 0]
+data[:, 1] = -data[:, 1]
 
-    return {
-        "solution_proposee": solution.strip(),
-        "cout_de_realisation": cout.strip(),
-        "duree_de_realisation": duree.strip(),
-        "references_clients": references
-    }
+scaler = MinMaxScaler()
+data_normalized = scaler.fit_transform(data)
 
-# Exemple de descriptions de soumissions
-soumission_1 = """
-Nous proposons une solution de construction clé en main pour le nouveau bâtiment administratif. Notre approche comprend la conception architecturale personnalisée, l'utilisation de matériaux de haute qualité et la mise en œuvre de technologies innovantes pour assurer l'efficacité énergétique et le confort des occupants.
-Notre offre compétitive s'élève à 2,5 millions d'euros, comprenant tous les frais de conception, de construction, de main-d'œuvre et de matériaux.
-Le projet sera complété en 18 mois.
-Nous avons réalisé avec succès des projets similaires pour des clients prestigieux tels que l'entreprise ABC Corp et la municipalité de Villeville.
-"""
+# Séparer les données normalisées des candidats et de l'offre
+data_normalized_candidats = data_normalized[:-1]
+data_normalized_offre = data_normalized[-1]
 
-soumission_2 = """
-Nous proposons une approche de construction innovante en utilisant des techniques modulaires préfabriquées. Notre solution offre une construction rapide, flexible et durable, avec la possibilité d'adaptation future aux besoins changeants de l'entreprise. Nous mettons l'accent sur la durabilité environnementale et la réduction des coûts à long terme.
-Notre offre compétitive s'élève à 2,2 millions d'euros.
-Le projet sera achevé en 15 mois.
-Notre entreprise a réalisé avec succès des projets similaires pour des clients renommés tels que l'entreprise XYZ Group et le gouvernement local de la région.
-"""
+# Calculer la similarité textuelle entre la solution de l'offre et celles des candidats
+vectorizer = TfidfVectorizer(stop_words=stopwords.words('french'))
+solutions = [c["solution"] for c in candidats] + [solution_offre]
+tfidf_matrix = vectorizer.fit_transform(solutions)
+cosine_similarities = cosine_similarity(tfidf_matrix[-1], tfidf_matrix[:-1])[0]
 
-# Extraire les informations des soumissions
-informations_soumission_1 = extraire_informations(soumission_1)
-informations_soumission_2 = extraire_informations(soumission_2)
+# Calculer les scores pour chaque candidat
+scores = []
+for i, candidat in enumerate(candidats):
+    score_prix = data_normalized_candidats[i][0] * poids["prix"]
+    score_duree = data_normalized_candidats[i][1] * poids["duree"]
+    score_references = data_normalized_candidats[i][2] * poids["references"]
+    score_solution = cosine_similarities[i] * poids["solution"]
+    score_total = score_prix + score_duree + score_references + score_solution
+    scores.append(score_total)
+    candidat["score"] = score_total
 
-print("Informations Soumission 1:")
-print(informations_soumission_1)
-print("\nInformations Soumission 2:")
-print(informations_soumission_2)
+# Trouver le meilleur candidat
+meilleur_candidat = max(candidats, key=lambda x: x["score"])
+
+# Afficher le meilleur candidat
+print("Le meilleur candidat est :", meilleur_candidat["nom"])
+print("Détails :", meilleur_candidat)

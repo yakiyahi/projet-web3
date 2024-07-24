@@ -9,6 +9,7 @@ contract ContratSoumissions {
         address soumissionaire; // Adresse de la personne ayant soumis la soumission
         uint256 numeroContrat; // Numéro du contrat associé à la soumission
         string nom;
+        string telephone;
         string coutTotal;
         string delaiRealisation;
         string references;
@@ -23,6 +24,7 @@ contract ContratSoumissions {
         address _soumissionaire,
         uint256 _numeroContrat,
         string memory _nom,
+        string memory _telephone,
         string memory _coutTotal,
         string memory _delaiRealisation,
         string memory _references
@@ -34,6 +36,7 @@ contract ContratSoumissions {
             soumissionaire: _soumissionaire,
             numeroContrat: _numeroContrat,
             nom: _nom,
+            telephone: _telephone,
             coutTotal: _coutTotal,
             delaiRealisation: _delaiRealisation,
             references: _references
@@ -54,6 +57,7 @@ contract ContratSoumissions {
         address soumissionaire,
         uint256 numeroContrat,
         string memory nom,
+        string memory telephone,
         string memory coutTotal,
         string memory delaiRealisation,
         string memory references
@@ -65,6 +69,7 @@ contract ContratSoumissions {
             soumission.soumissionaire,
             soumission.numeroContrat,
             soumission.nom,
+            soumission.telephone,
             soumission.coutTotal,
             soumission.delaiRealisation,
             soumission.references

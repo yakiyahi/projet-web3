@@ -17,7 +17,8 @@ contract AppelOffres {
     mapping(uint =>Offre) offres;
     uint public offreCount;
 
-    event OffreCree(uint numero, string titre, string description, string societe, uint datePublication, uint dateCloture);
+    event OffreCree(uint numero, string titre, string description, string societe,
+     uint datePublication, uint dateCloture);
 
     function getOffreCount() public view returns(uint) {
         return offreCount;
@@ -33,8 +34,10 @@ contract AppelOffres {
     ) public {
         offreCount++;
 
-        offres[offreCount] = Offre(offreCount, _titre, _description, _societe, _datePublication, _dateCloture);
-        emit OffreCree(offreCount, _titre, _description, _societe, _datePublication, _dateCloture);
+        offres[offreCount] = Offre(offreCount, _titre, _description, _societe,
+         _datePublication, _dateCloture);
+        emit OffreCree(offreCount, _titre, _description, _societe, _datePublication, 
+        _dateCloture);
     }
 
     // Fonction pour récupérer toutes les offres

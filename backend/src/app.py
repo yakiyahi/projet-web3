@@ -27,7 +27,7 @@ def get_detaille_offre(num):
 @app.route('/offre/soumission/<int:num>', methods=['POST'])
 def save_candidat(num):
     data = request.json
-    result = save_candidature(num, data['societe'], data['solution'], data['reference'])
+    result = save_candidature(num, data['societe'], data['telephone'], data['solution'], data['reference'])
     print(result)
     return result
 
@@ -39,7 +39,7 @@ def creer_offre():
     print(data)
 
     return result
-@app.route('/soumissions/evaluer')
+@app.route('/evaluation')
 def evaluer_offre():
     return evaluer()
 
