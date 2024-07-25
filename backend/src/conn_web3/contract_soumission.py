@@ -1,9 +1,9 @@
 import json
-from src.contances.contances import *
-from src.web3.abi import *
-from src.models.recupere_info import *
-from src.models.evaluer_candidature import evaluer_candidats
-from src.postgres_con.connextion_db import *
+from contances.contances import *
+from conn_web3.abi import *
+from models.recupere_info import *
+from models.evaluer_candidature import evaluer_candidats
+from postgres_con.connextion_db import *
 
 
 contract = web3.eth.contract(address=soumission_address, abi=get_abi_submit())
@@ -92,3 +92,9 @@ def evaluer():
     #decision.append(meilleur)
     #print("meilleur: ", decision[-1])
     return json.dumps(decision)
+
+def count_candidat():
+
+    candidat_count = contract.functions.nombreSoumissions().call()
+
+    return str(candidat_count)     

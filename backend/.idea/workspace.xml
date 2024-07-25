@@ -5,26 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96816417-a308-451e-9785-ca578c672a4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/postgres_con/connextion_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/conn_web3/authentification_web3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contances/contances.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/contances/contances.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contracts/AppelOffres.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/AppelOffres.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/Authentication.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/ContractAuth.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/ContractAuth.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/ContractAuthentication.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contracts/ContratSoumissions.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/ContratSoumissions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/evaluer_candidature.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/evaluer_candidature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/teste.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/teste.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web3/connexion_web3.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web3/connexion_web3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web3/contract_soumission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web3/contract_soumission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web3/abi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/conn_web3/abi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web3/connexion_web3.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/conn_web3/connexion_web3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/web3/contract_soumission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/conn_web3/contract_soumission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client-vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/OffrePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/OffrePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/SubmitionPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/SubmitionPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/DetailleOffrePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/DetailleOffrePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/EvaluationPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/EvaluationPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewOffrePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewOffrePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewSubmitPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/pages/modals/NewSubmitPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/contracts/AppelOffres.sol" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/contracts/AppelOffres.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/contracts/ContratSoumissions.sol" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/contracts/ContratSoumissions.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartcontract/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/truffle-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client-vue/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smartcontract/migrations/1_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/migrations/1_deploy_contracts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smartcontract/migrations/2_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../smartcontract/migrations/2_deploy_contracts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smartcontract/test/TestMetaCoin.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smartcontract/test/metacoin.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

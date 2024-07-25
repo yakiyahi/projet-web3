@@ -1,7 +1,9 @@
 from flask import Flask, request
 from flask_cors import CORS
-from src.web3.connexion_web3 import *
-from src.web3.contract_soumission import *
+
+from conn_web3.authentification_web3 import *
+from conn_web3.connexion_web3 import *
+from conn_web3.contract_soumission import *
 
 app = Flask(__name__)
 CORS(app)
@@ -15,7 +17,7 @@ def get_offre_all():
     return all_offres()
 @app.route('/soumissions/all')
 def get_all_soumission():
-    return  all_soumissions()
+    return all_soumissions()
 @app.route('/offre/descr')
 def get_descr_offre():
     return get_desc_offre(2)
@@ -42,6 +44,34 @@ def creer_offre():
 @app.route('/evaluation')
 def evaluer_offre():
     return evaluer()
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.json
+    username = data['username']
+    password = data['password']
+    result = registrer_user(username, password)
+    return result
+
+@app.route('/authenticate', methods=['POST'])
+def authenticate():
+    data = request.json
+    password = data['password']
+    username = data['username']
+    is_authenticated = login(username,password)
+    print(is_authenticated)
+    return is_authenticated
+
+
+@app.route('/offre/count')
+def get_offre_count():
+    return count_offres()
+
+@app.route('/soumission/count')
+def get_soumissioncount():
+    return count_candidat()
+
+
 
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5000)

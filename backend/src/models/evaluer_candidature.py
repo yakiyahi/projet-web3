@@ -21,7 +21,11 @@ def evaluer_candidats(candidats):
     }
 
     # Préparer les données
-    data = np.array([[c["prix"], c["references"], c["duree"], c["passe"]] for c in candidats])
+    data = np.array([[c["prix"], 
+                c["references"], 
+                c["duree"], 
+                c["passe"] if isinstance(c["passe"],(int,float)) else 0
+                ] for c in candidats])
 
     # Inverser les valeurs pour le coût et la durée pour que les plus petites valeurs soient meilleures
     data[:, 0] = -data[:, 0]  # Inverser les coûts

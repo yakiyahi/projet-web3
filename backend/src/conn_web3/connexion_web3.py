@@ -1,13 +1,10 @@
 import json
-
-from src.contances.contances import address_contract
-from src.web3.abi import get_abi
+from conn_web3.abi import get_abi
 from contances.contances import *
 import datetime
 
 
 contract = web3.eth.contract(address=address_contract, abi=get_abi())
-
 
 #creation fonction qui creer l'offre
 def save_offre(title, description, societe, date_pub, date_clos):
@@ -47,8 +44,9 @@ def all_offres():
 def count_offres():
 
     offre_count = contract.functions.getOffreCount().call()
+    print(offre_count)
 
-    return offre_count
+    return str(offre_count) 
 
 #foncion qui recupere la description de l'offre
 def get_desc_offre(numero):
