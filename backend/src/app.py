@@ -71,7 +71,9 @@ def get_offre_count():
 def get_soumissioncount():
     return count_candidat()
 
-
+@app.route('/soumisparoffre')
+def soumis_par_offre():
+    return nombr_cand_par_offre()
 
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5000)

@@ -4,6 +4,8 @@ from conn_web3.abi import *
 from models.recupere_info import *
 from models.evaluer_candidature import evaluer_candidats
 from postgres_con.connextion_db import *
+from collections import defaultdict
+import pandas as pd
 
 
 contract = web3.eth.contract(address=soumission_address, abi=get_abi_submit())
@@ -98,3 +100,14 @@ def count_candidat():
     candidat_count = contract.functions.nombreSoumissions().call()
 
     return str(candidat_count)     
+
+def nombr_cand_par_offre():
+    candidatures =  soumissions()
+    df = pd.DataFrame(candidatures)    
+    compte_soum = df.groupby('numeroContrat').size().reset_index(name="nombre_cousmis")
+   
+    result = compte_soum.to_dict(orient='records')
+    json_result = json.dumps(result,ensure_ascii=False,indent=4)
+    
+    return json_result
+        
